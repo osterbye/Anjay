@@ -1,7 +1,7 @@
 [submodule "avs_commons/git"]
 	path = avs_commons/git
 	url = https://github.com/osterbye/avs_commons.git
-	branch = leikr
+	branch = dev
 [submodule "test/integration/framework/nsh-lwm2m/pymbedtls/src/pybind11"]
 	path = test/integration/framework/nsh-lwm2m/pymbedtls/src/pybind11
 	url = https://github.com/pybind/pybind11.git

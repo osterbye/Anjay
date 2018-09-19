@@ -26,6 +26,7 @@
 
 #include <avsystem/commons/errno.h>
 #include <avsystem/commons/memory.h>
+#include <avsystem/commons/saran2.h>
 #include <avsystem/commons/stream/stream_net.h>
 #include <avsystem/commons/stream_v_table.h>
 
@@ -159,6 +160,10 @@ const char *anjay_get_version(void) {
 anjay_t *anjay_new(const anjay_configuration_t *config) {
     anjay_log(INFO, "Initializing Anjay " ANJAY_VERSION);
     _anjay_log_feature_list();
+    if (!init_saran2()) {
+        anjay_log(ERROR, "Could not initialize SARA-N2");
+        return NULL;
+    }
     anjay_t *out = (anjay_t *) avs_calloc(1, sizeof(*out));
     if (!out) {
         anjay_log(ERROR, "Out of memory");
